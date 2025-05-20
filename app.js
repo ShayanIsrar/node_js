@@ -1,4 +1,18 @@
-const fs = require("fs");
+// app.js
+import express from "express";
+import dotenv from "dotenv";
+import { connectDB } from "./config/db.js";
+import userRoutes from "./routes/userRoutes.js";
 
-console.log("This File name is >> ", __filename);
-console.log("This folder name is >> ", __dirname);
+dotenv.config();
+connectDB();
+
+const app = express();
+app.use(express.json());
+
+app.use("/api/users", userRoutes);
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
+});
