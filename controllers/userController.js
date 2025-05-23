@@ -20,3 +20,29 @@ export const createUser = async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 };
+
+export const updateUser = async (req, res) => {
+  const { id } = req.params;
+
+  const updatedUser = await User.findByIdAndUpdate(id, req.body, {
+    new: true,
+  });
+
+  if (!updatedUser) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
+  res.json(updatedUser);
+};
+
+export const deleteUser = async (req, res) => {
+  const { id } = req.params;
+
+  const deletedUser = await User.findByIdAndDelete(id);
+
+  if (!deletedUser) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
+  res.json({ message: "User deleted successfully" });
+};
