@@ -11,7 +11,7 @@ export default function App() {
       <SideBar />
       <div className="flex-1 p-6">
         <Routes>
-          <Route path="/" element={<CreateUser />} />
+          <Route path="/form" element={<CreateUser />} />
           <Route path="/users" element={<UserList />} />
         </Routes>
       </div>

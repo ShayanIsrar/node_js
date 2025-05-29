@@ -51,7 +51,9 @@ export default function UserList() {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">All Users</h2>
+      <h2 className="text-2xl font-bold mb-4 text-red-600 text-center">
+        All Users
+      </h2>
       <div className="bg-white p-4 rounded shadow-md overflow-x-auto">
         <table className="w-full table-auto border-collapse text-center">
           <thead>

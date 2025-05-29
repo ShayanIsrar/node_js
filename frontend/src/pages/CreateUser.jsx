@@ -16,6 +16,7 @@ export default function CreateUser() {
     try {
       await axios.post("http://localhost:3000/api/users/create", form);
       setForm({ name: "", email: "", age: "" });
+      // alert("This is the power of money");
       navigate("/users");
     } catch (err) {
       alert("Error creating user.");
@@ -24,10 +25,12 @@ export default function CreateUser() {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">Create New User</h2>
+      <h2 className="text-2xl text-red-800 italic text-center font-bold mb-4">
+        Create New User
+      </h2>
       <form
         onSubmit={handleSubmit}
-        className="space-y-4 bg-white p-6 rounded shadow-md max-w-md"
+        className="space-y-4 bg-gray-200 p-6 rounded shadow-md max-w-md"
       >
         <input
           className="w-full border p-2 rounded"
